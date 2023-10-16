@@ -18,9 +18,8 @@ const answerButtonsElement = document.getElementById(
 );
 
 // Categories
-
 const categoriesData = [];
-let chosenCategory = 10;
+let chosenCategory;
 axios
 	.get("https://opentdb.com/api_category.php")
 	.then((res) => {
@@ -31,49 +30,54 @@ axios
 	})
 	.catch((err) => console.error(err));
 
+function selectCategory(e) {
+	chosenCategory = e.target.value;
+	goPlay();
+	getQuestions(chosenCategory);
+}
+
 function showCategories(categoriesData) {
 	categoriesData.forEach((category) => {
 		const button = document.createElement("button");
 		button.innerText = category.name;
 		button.setAttribute("value", category.id);
 		categories.appendChild(button);
+		button.addEventListener("click", selectCategory);
 	});
-}
-
-function selectCategory() {
-	return button.value;
-	console.log(button.value);
 }
 
 // Get Questions
 const questions = [];
-axios
-	.get(
-		`https://opentdb.com/api.php?amount=30&category=${chosenCategory}&type=multiple`
-	)
-	.then((res) => {
-		questionsArray = res.data.results;
-		questionsArray.forEach((question) => {
-			const incorrectAnswers = question.incorrect_answers;
-			question = {
-				question: question.question,
-				answers: [
-					{
-						text: question.correct_answer,
-						correct: true,
-					},
-				],
-			};
-			incorrectAnswers.forEach((answer) => {
-				question.answers.push({
-					text: answer,
-					correct: false,
+function getQuestions(chosenCategory) {
+	axios
+		.get(
+			`https://opentdb.com/api.php?amount=20&category=${chosenCategory}&type=multiple`
+		)
+		.then((res) => {
+			questionsArray = res.data.results;
+			console.log(questionsArray);
+			questionsArray.forEach((question) => {
+				const incorrectAnswers = question.incorrect_answers;
+				question = {
+					question: question.question,
+					answers: [
+						{
+							text: question.correct_answer,
+							correct: true,
+						},
+					],
+				};
+				incorrectAnswers.forEach((answer) => {
+					question.answers.push({
+						text: answer,
+						correct: false,
+					});
 				});
+				questions.push(question);
 			});
-			questions.push(question);
-		});
-	})
-	.catch((err) => console.error(err));
+		})
+		.catch((err) => console.error(err));
+}
 
 // Hide Views
 function hideView() {
