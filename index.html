@@ -6,20 +6,129 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0" />
 		<title>Quiz Project</title>
+		<script src="https://cdn.tailwindcss.com"></script>
 		<link rel="stylesheet" href="style.css" />
 	</head>
-	<body>
-		<h1>Quiz</h1>
-		<div id="question-container" class="hide">
-			<div id="question">Question</div>
+	<body
+		class="bg-grey-lightest font-sans leading-normal tracking-normal">
+		<div class="flex md:flex-row-reverse flex-wrap">
+			<header>
+				<h1>Quiz</h1>
+			</header>
+			<main class="w-full md:w-4/5 bg-grey-lightest">
+				<div class="container bg-grey-lightest pt-16 px-6">
+					<!-- Card -->
+					<div
+						class="flex flex-col justify-center items-center h-[60vh]">
+						<div id="home">Home</div>
+						<div id="categories" class="hide">
+							Categories
+						</div>
+						<div
+							id="play"
+							class="hide flex flex-col items-center rounded-[10px] border-[1px] border-gray-200 w-[90vw] mx-auto p-4 bg-white bg-clip-border shadow-md shadow-[#F3F3F3] dark:border-[#ffffff33] dark:!bg-navy-800 text-gray-600 dark:shadow-none">
+							<div
+								id="question-container"
+								class="hide relative flex h-32 w-full justify-center rounded-xl bg-cover dark:text-white">
+								<div id="question">Question</div>
+							</div>
+							<div
+								id="answer-buttons"
+								class="mt-6 mb-3 flex gap-14 md:!gap-14">
+								<div
+									class="flex flex-col items-center justify-center">
+									<button class="font-normal text-gray-600">
+										Answer 1
+									</button>
+									<button class="font-normal text-gray-600">
+										Answer 2
+									</button>
+								</div>
+								<div
+									class="flex flex-col items-center justify-center">
+									<button class="font-normal text-gray-600">
+										Answer 3
+									</button>
+									<button class="font-normal text-gray-600">
+										Answer 4
+									</button>
+								</div>
+							</div>
+							<div class="controls">
+								<button
+									id="start-btn"
+									class="middle none center mr-3 rounded-lg bg-gradient-to-tr from-pink-600 to-pink-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+									data-ripple-light="true">
+									Start
+								</button>
 
-			<div id="answer-buttons"></div>
-		</div>
-
-		<div class="controls">
-			<button id="start-btn">Start</button>
-
-			<button id="next-btn" class="hide">Next</button>
+								<button
+									id="next-btn"
+									class="hide middle none center mr-3 rounded-lg bg-gradient-to-tr from-pink-600 to-pink-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+									data-ripple-light="true">
+									Next
+								</button>
+							</div>
+						</div>
+						<div id="results" class="hide">Results</div>
+					</div>
+				</div>
+			</main>
+			<!-- Sidebar-bottom Nav -->
+			<div
+				class="w-full md:w-1/5 bg-gray-900 md:bg-gray-900 px-2 text-center fixed bottom-0 md:pt-8 md:top-0 md:left-0 h-16 md:h-screen md:border-r-4 md:border-gray-600">
+				<div
+					class="md:relative mx-auto lg:float-right lg:px-6">
+					<ul
+						class="list-reset flex flex-row md:flex-col text-center md:text-left">
+						<li class="mr-3 flex-1">
+							<a
+								id="homeNav"
+								class="block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-pink-500">
+								<i class="fas fa-link pr-0 md:pr-3"></i
+								><span
+									class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block"
+									>Home</span
+								>
+							</a>
+						</li>
+						<li class="mr-3 flex-1">
+							<a
+								id="categoriesNav"
+								class="block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-pink-500">
+								<i class="fas fa-link pr-0 md:pr-3"></i
+								><span
+									class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block"
+									>Categories</span
+								>
+							</a>
+						</li>
+						<li class="mr-3 flex-1">
+							<a
+								id="playNav"
+								class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-pink-600">
+								<i
+									class="fas fa-link pr-0 md:pr-3 text-pink-500"></i
+								><span
+									class="pb-1 md:pb-0 text-xs md:text-base text-white md:font-bold block md:inline-block"
+									>Play</span
+								>
+							</a>
+						</li>
+						<li class="mr-3 flex-1">
+							<a
+								id="resultsNav"
+								class="block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-pink-500">
+								<i class="fas fa-link pr-0 md:pr-3"></i
+								><span
+									class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block"
+									>Results</span
+								>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 		<script src="main.js"></script>
 	</body>

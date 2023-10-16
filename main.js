@@ -1,18 +1,24 @@
+const homeNav = document.getElementById("homeNav");
+const home = document.getElementById("home");
+const categoriesNav =
+	document.getElementById("categoriesNav");
+const categories = document.getElementById("categories");
+const playNav = document.getElementById("playNav");
+const play = document.getElementById("play");
+const resultsNav = document.getElementById("resultsNav");
+const results = document.getElementById("results");
 const startButton = document.getElementById("start-btn");
-
 const nextButton = document.getElementById("next-btn");
-
 const questionContainerElement = document.getElementById(
 	"question-container"
 );
-
 const questionElement = document.getElementById("question");
-
 const answerButtonsElement = document.getElementById(
 	"answer-buttons"
 );
 
 // Questions
+
 const questions = [
 	{
 		question: "What is 2 + 2?",
@@ -66,6 +72,35 @@ const questions = [
 		],
 	},
 ];
+
+// Hide Views
+function hideView() {
+	home.classList.add("hide");
+	categories.classList.add("hide");
+	play.classList.add("hide");
+	results.classList.add("hide");
+}
+
+// Navigation Functions
+function goHome() {
+	hideView();
+	home.classList.remove("hide");
+}
+
+function goCategories() {
+	hideView();
+	categories.classList.remove("hide");
+}
+
+function goPlay() {
+	hideView();
+	play.classList.remove("hide");
+}
+
+function goResults() {
+	hideView();
+	results.classList.remove("hide");
+}
 
 // Start Game
 let currentQuestionIndex;
@@ -124,12 +159,16 @@ function selectAnswer() {
 // Reset
 function resetState() {
 	nextButton.classList.add("hide");
-	while (answerButtonsElement.firstChild) {
-		answerButtonsElement.removeChild(
-			answerButtonsElement.firstChild
-		);
-	}
+	answerButtonsElement.innerHTML = "";
 }
+
+homeNav.addEventListener("click", goHome);
+
+categoriesNav.addEventListener("click", goCategories);
+
+playNav.addEventListener("click", goPlay);
+
+resultsNav.addEventListener("click", goResults);
 
 startButton.addEventListener("click", startGame);
 

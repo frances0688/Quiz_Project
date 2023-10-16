@@ -70,7 +70,6 @@ This project consists on the creation of a quiz game application and showing the
 ### Views
 
 <views>
- 
   <ol>
     <li>Home</a></li>
     <li>Question</a></li>

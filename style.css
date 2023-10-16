@@ -1,5 +1,5 @@
 .hide{
-    display: none;
+    display: none !important;
 }
 
 .correct {
@@ -8,4 +8,12 @@
     
 .wrong {
     background-color: rgb(255, 0, 0);
+}
+
+#question-container {
+    background-image: url('https://horizon-tailwind-react-git-tailwind-components-horizon-ui.vercel.app/static/media/banner.ef572d78f29b0fee0a09.png');
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
 }
