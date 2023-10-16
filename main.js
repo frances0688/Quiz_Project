@@ -20,6 +20,7 @@ const answerButtonsElement = document.getElementById(
 // Categories
 const categoriesData = [];
 let chosenCategory;
+
 axios
 	.get("https://opentdb.com/api_category.php")
 	.then((res) => {
@@ -46,12 +47,17 @@ function showCategories(categoriesData) {
 	});
 }
 
-// Get Questions
+// Get Questions & Answers
 const questions = [];
+
+function shuffle(array) {
+	return array.sort(() => Math.random() - 0.5);
+}
+
 function getQuestions(chosenCategory) {
 	axios
 		.get(
-			`https://opentdb.com/api.php?amount=20&category=${chosenCategory}&type=multiple`
+			`https://opentdb.com/api.php?amount=10&category=${chosenCategory}&type=multiple`
 		)
 		.then((res) => {
 			questionsArray = res.data.results;
@@ -73,6 +79,7 @@ function getQuestions(chosenCategory) {
 						correct: false,
 					});
 				});
+				question.answers = shuffle(question.answers);
 				questions.push(question);
 			});
 		})
