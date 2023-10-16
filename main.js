@@ -20,6 +20,7 @@ const answerButtonsElement = document.getElementById(
 // Categories
 
 const categoriesData = [];
+let chosenCategory = 10;
 axios
 	.get("https://opentdb.com/api_category.php")
 	.then((res) => {
@@ -32,7 +33,6 @@ axios
 
 function showCategories(categoriesData) {
 	categoriesData.forEach((category) => {
-		console.log("category", category);
 		const button = document.createElement("button");
 		button.innerText = category.name;
 		button.setAttribute("value", category.id);
@@ -42,27 +42,40 @@ function showCategories(categoriesData) {
 
 function selectCategory() {
 	return button.value;
+	console.log(button.value);
 }
 
-// Questions
+// Get Questions
 const questions = [];
 axios
 	.get(
-		"https://opentdb.com/api.php?amount=30&category=17&type=multiple"
+		`https://opentdb.com/api.php?amount=30&category=${chosenCategory}&type=multiple`
 	)
 	.then((res) => {
-		console.log(res);
+		questionsArray = res.data.results;
+		questionsArray.forEach((question) => {
+			const incorrectAnswers = question.incorrect_answers;
+			question = {
+				question: question.question,
+				answers: [
+					{
+						text: question.correct_answer,
+						correct: true,
+					},
+				],
+			};
+			incorrectAnswers.forEach((answer) => {
+				question.answers.push({
+					text: answer,
+					correct: false,
+				});
+			});
+			questions.push(question);
+		});
 	})
 	.catch((err) => console.error(err));
-// const questions = [ 	{ 		question: "What is 2 + 2?", 		answers: [ 			{
-// 				text: "4", 				correct: true, 			}, 			{ 				text: "22", 				correct:
-// false, 			}, 		], 	}, 	{ 		question: "Is web development fun?", 		answers: [
-// 			{ 				text: "Kinda", 				correct: false, 			}, 			{ 				text: "YES!!!",
-// 				correct: true, 			}, 			{ 				text: "Um no", 				correct: false, 			},
-// 			{ 				text: "IDK", 				correct: false, 			}, 		], 	}, 	{ 		question: "What
-// is 4 * 2?", 		answers: [ 			{ 				text: "6", 				correct: false, 			}, 			{
-// 				text: "8", 				correct: true, 			}, 			{ 				text: "Yes", 				correct:
-// false, 			}, 		], 	}, ]; Hide Views
+
+// Hide Views
 function hideView() {
 	home.classList.add("hide");
 	categories.classList.add("hide");
@@ -79,7 +92,6 @@ function goHome() {
 function goCategories() {
 	hideView();
 	categories.classList.remove("hide");
-	console.log("infuncData", categoriesData);
 	showCategories(categoriesData);
 }
 
