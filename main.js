@@ -17,63 +17,52 @@ const answerButtonsElement = document.getElementById(
 	"answer-buttons"
 );
 
+// Categories
+
+const categoriesData = [];
+axios
+	.get("https://opentdb.com/api_category.php")
+	.then((res) => {
+		const categoriesArray = res.data.trivia_categories;
+		categoriesArray.forEach((category) => {
+			categoriesData.push(category);
+		});
+	})
+	.catch((err) => console.error(err));
+
+function showCategories(categoriesData) {
+	categoriesData.forEach((category) => {
+		console.log("category", category);
+		const button = document.createElement("button");
+		button.innerText = category.name;
+		button.setAttribute("value", category.id);
+		categories.appendChild(button);
+	});
+}
+
+function selectCategory() {
+	return button.value;
+}
+
 // Questions
-
-const questions = [
-	{
-		question: "What is 2 + 2?",
-		answers: [
-			{
-				text: "4",
-				correct: true,
-			},
-			{
-				text: "22",
-				correct: false,
-			},
-		],
-	},
-	{
-		question: "Is web development fun?",
-		answers: [
-			{
-				text: "Kinda",
-				correct: false,
-			},
-			{
-				text: "YES!!!",
-				correct: true,
-			},
-			{
-				text: "Um no",
-				correct: false,
-			},
-			{
-				text: "IDK",
-				correct: false,
-			},
-		],
-	},
-	{
-		question: "What is 4 * 2?",
-		answers: [
-			{
-				text: "6",
-				correct: false,
-			},
-			{
-				text: "8",
-				correct: true,
-			},
-			{
-				text: "Yes",
-				correct: false,
-			},
-		],
-	},
-];
-
-// Hide Views
+const questions = [];
+axios
+	.get(
+		"https://opentdb.com/api.php?amount=30&category=17&type=multiple"
+	)
+	.then((res) => {
+		console.log(res);
+	})
+	.catch((err) => console.error(err));
+// const questions = [ 	{ 		question: "What is 2 + 2?", 		answers: [ 			{
+// 				text: "4", 				correct: true, 			}, 			{ 				text: "22", 				correct:
+// false, 			}, 		], 	}, 	{ 		question: "Is web development fun?", 		answers: [
+// 			{ 				text: "Kinda", 				correct: false, 			}, 			{ 				text: "YES!!!",
+// 				correct: true, 			}, 			{ 				text: "Um no", 				correct: false, 			},
+// 			{ 				text: "IDK", 				correct: false, 			}, 		], 	}, 	{ 		question: "What
+// is 4 * 2?", 		answers: [ 			{ 				text: "6", 				correct: false, 			}, 			{
+// 				text: "8", 				correct: true, 			}, 			{ 				text: "Yes", 				correct:
+// false, 			}, 		], 	}, ]; Hide Views
 function hideView() {
 	home.classList.add("hide");
 	categories.classList.add("hide");
@@ -90,6 +79,8 @@ function goHome() {
 function goCategories() {
 	hideView();
 	categories.classList.remove("hide");
+	console.log("infuncData", categoriesData);
+	showCategories(categoriesData);
 }
 
 function goPlay() {
