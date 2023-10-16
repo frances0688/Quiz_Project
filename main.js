@@ -7,6 +7,8 @@ const playNav = document.getElementById("playNav");
 const play = document.getElementById("play");
 const resultsNav = document.getElementById("resultsNav");
 const results = document.getElementById("results");
+const name = document.getElementById("name");
+const homeBtn = document.getElementById("homeBtn");
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
 const questionContainerElement = document.getElementById(
@@ -16,6 +18,26 @@ const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById(
 	"answer-buttons"
 );
+
+const user = {
+	name: "",
+	results: [
+		{
+			category: "",
+			score: 0,
+			date: Date(),
+		},
+	],
+};
+
+// Save Name to Local Storage
+function createDataObject(e) {
+	e.preventDefault();
+	user.name = name.value;
+	localStorage.user = JSON.stringify(user);
+}
+
+homeBtn.addEventListener("click", createDataObject);
 
 // Categories
 const categoriesData = [];
@@ -176,6 +198,7 @@ function resetState() {
 	answerButtonsElement.innerHTML = "";
 }
 
+// Event Listeners
 homeNav.addEventListener("click", goHome);
 
 categoriesNav.addEventListener("click", goCategories);
