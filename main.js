@@ -9,6 +9,7 @@ const resultsNav = document.getElementById("resultsNav");
 const results = document.getElementById("results");
 const name = document.getElementById("name");
 const homeBtn = document.getElementById("homeBtn");
+const progressBar = document.getElementById("progressBar");
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
 const questionContainerElement = document.getElementById(
@@ -30,11 +31,12 @@ const user = {
 	],
 };
 
-// Save Name to Local Storage
+// Save User to Local Storage
 function createDataObject(e) {
 	e.preventDefault();
 	user.name = name.value;
 	localStorage.user = JSON.stringify(user);
+	goCategories();
 }
 
 homeBtn.addEventListener("click", createDataObject);
@@ -110,41 +112,43 @@ function getQuestions(chosenCategory) {
 
 // Hide Views
 function hideView() {
-	home.classList.add("hide");
-	categories.classList.add("hide");
-	play.classList.add("hide");
-	results.classList.add("hide");
+	home.classList.add("d-none");
+	categories.classList.add("d-none");
+	play.classList.add("d-none");
+	results.classList.add("d-none");
 }
 
 // Navigation Functions
 function goHome() {
 	hideView();
-	home.classList.remove("hide");
+	home.classList.remove("d-none");
 }
 
 function goCategories() {
 	hideView();
-	categories.classList.remove("hide");
+	categories.classList.remove("d-none");
 	showCategories(categoriesData);
 }
 
 function goPlay() {
 	hideView();
-	play.classList.remove("hide");
+	play.classList.remove("d-none");
 }
 
 function goResults() {
 	hideView();
-	results.classList.remove("hide");
+	results.classList.remove("d-none");
 }
 
 // Start Game
 let currentQuestionIndex;
 
 function startGame() {
-	startButton.classList.add("hide");
+	startButton.classList.add("d-none");
 	currentQuestionIndex = 0;
-	questionContainerElement.classList.remove("hide");
+	questionContainerElement.classList.remove("d-none");
+	answerButtonsElement.classList.remove("d-none");
+	progressBar.classList.remove("d-none");
 	setNextQuestion();
 }
 
@@ -185,16 +189,15 @@ function selectAnswer() {
 		}
 	);
 	if (questions.length > currentQuestionIndex + 1) {
-		nextButton.classList.remove("hide");
+		nextButton.classList.remove("d-none");
 	} else {
-		startButton.innerText = "Restart";
-		startButton.classList.remove("hide");
+		goResults();
 	}
 }
 
 // Reset
 function resetState() {
-	nextButton.classList.add("hide");
+	nextButton.classList.add("d-none");
 	answerButtonsElement.innerHTML = "";
 }
 
