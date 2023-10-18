@@ -72,9 +72,217 @@
 					</button>
 				</div>
 			</div>
-			<div
-				id="categories"
-				class="d-none d-flex flex-wrap"></div>
+			<div id="categories" class="d-none d-flex flex-wrap">
+				<div class="d-grid gap-2">
+					<button
+						class="btn btn-lg btn-primary"
+						type="button"
+						value="9"
+						onclick="selectCategory(9)">
+						General Knowledge
+					</button>
+					<div
+						class="btn-group"
+						role="group"
+						aria-label="Button group with nested dropdown">
+						<button type="button" class="btn btn-primary">
+							Entertainment
+						</button>
+						<div class="btn-group" role="group">
+							<button
+								id="entertainmentBtnGroup"
+								type="button"
+								class="btn btn-primary dropdown-toggle"
+								data-bs-toggle="dropdown"></button>
+							<div
+								class="dropdown-menu"
+								aria-labelledby="entertainmentBtnGroup"
+								data-popper-placement="bottom-start"
+								style="
+									position: absolute;
+									inset: 0px auto auto 0px;
+									margin: 0px;
+									transform: translate(0px, 52px);
+								">
+								<a
+									class="dropdown-item"
+									value="16"
+									onclick="selectCategory(16)"
+									>Board Games</a
+								>
+								<a
+									class="dropdown-item"
+									value="10"
+									onclick="selectCategory(10)"
+									>Books</a
+								>
+								<a
+									class="dropdown-item"
+									value="32"
+									onclick="selectCategory(32)"
+									>Cartoon & Animations</a
+								>
+								<a
+									class="dropdown-item"
+									value="29"
+									onclick="selectCategory(29)"
+									>Comics</a
+								>
+								<a
+									class="dropdown-item"
+									value="11"
+									onclick="selectCategory(11)"
+									>Film</a
+								>
+								<a
+									class="dropdown-item"
+									value="31"
+									onclick="selectCategory(31)"
+									>Japanese Anime & Manga</a
+								>
+								<a
+									class="dropdown-item"
+									value="12"
+									onclick="selectCategory(12)"
+									>Music</a
+								>
+								<a
+									class="dropdown-item"
+									value="13"
+									onclick="selectCategory(13)"
+									>Musicals & Theatres</a
+								>
+								<a
+									class="dropdown-item"
+									value="14"
+									onclick="selectCategory(14)"
+									>Television</a
+								>
+								<a
+									class="dropdown-item"
+									value="15"
+									onclick="selectCategory(15)"
+									>Video Games</a
+								>
+							</div>
+						</div>
+					</div>
+					<div
+						class="btn-group"
+						role="group"
+						aria-label="Button group with nested dropdown">
+						<button type="button" class="btn btn-primary">
+							Science
+						</button>
+						<div class="btn-group" role="group">
+							<button
+								id="ScienceBtnGroup"
+								type="button"
+								class="btn btn-primary dropdown-toggle"
+								data-bs-toggle="dropdown"
+								aria-haspopup="true"></button>
+							<div
+								class="dropdown-menu"
+								aria-labelledby="ScienceBtnGroup"
+								data-popper-placement="bottom-start"
+								style="
+									position: absolute;
+									inset: 0px auto auto 0px;
+									margin: 0px;
+									transform: translate(0px, 52px);
+								">
+								<a
+									class="dropdown-item"
+									value="18"
+									onclick="selectCategory(18)"
+									>Computers</a
+								>
+								<a
+									class="dropdown-item"
+									value="30"
+									onclick="selectCategory(30)"
+									>Gadgets</a
+								>
+								<a
+									class="dropdown-item"
+									value="19"
+									onclick="selectCategory(19)"
+									>Mathematics</a
+								>
+								<a
+									class="dropdown-item"
+									value="17"
+									onclick="selectCategory(17)"
+									>Nature</a
+								>
+							</div>
+						</div>
+					</div>
+					<button
+						class="btn btn-lg btn-primary"
+						type="button"
+						value="20"
+						onclick="selectCategory(20)">
+						Mythology
+					</button>
+					<button
+						class="btn btn-lg btn-primary"
+						type="button"
+						value="21"
+						onclick="selectCategory(21)">
+						Sports
+					</button>
+					<button
+						class="btn btn-lg btn-primary"
+						type="button"
+						value="22"
+						onclick="selectCategory(22)">
+						Geography
+					</button>
+					<button
+						class="btn btn-lg btn-primary"
+						type="button"
+						value="23"
+						onclick="selectCategory(23)">
+						History
+					</button>
+					<button
+						class="btn btn-lg btn-primary"
+						type="button"
+						value="24"
+						onclick="selectCategory(24)">
+						Politics
+					</button>
+					<button
+						class="btn btn-lg btn-primary"
+						type="button"
+						value="25"
+						onclick="selectCategory(25)">
+						Art
+					</button>
+					<button
+						class="btn btn-lg btn-primary"
+						type="button"
+						value="26"
+						onclick="selectCategory(26)">
+						Celebrities
+					</button>
+					<button
+						class="btn btn-lg btn-primary"
+						type="button"
+						value="27"
+						onclick="selectCategory(27)">
+						Animals
+					</button>
+					<button
+						class="btn btn-lg btn-primary"
+						type="button"
+						value="28"
+						onclick="selectCategory(28)">
+						Vehicles
+					</button>
+				</div>
+			</div>
 			<div
 				id="play"
 				class="d-none m-2 justify-content-center align-items-center">

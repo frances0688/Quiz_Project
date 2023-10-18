@@ -45,43 +45,23 @@ function createDataObject(e) {
 homeBtn.addEventListener("click", createDataObject);
 
 // Categories
-const categoriesData = [];
 let chosenCategory;
 
-axios
-	.get("https://opentdb.com/api_category.php")
-	.then((res) => {
-		const categoriesArray = res.data.trivia_categories;
-		categoriesArray.forEach((category) => {
-			categoriesData.push(category);
-		});
-	})
-	.catch((err) => console.error(err));
-
-function selectCategory(e) {
-	chosenCategory = e.target.value;
+function selectCategory(value) {
+	chosenCategory = value;
 	goPlay();
 	getQuestions(chosenCategory);
 }
 
-function showCategories(categoriesData) {
-	categoriesData.forEach((category) => {
-		const button = document.createElement("button");
-		button.innerHTML = category.name;
-		button.setAttribute("value", category.id);
-		categories.appendChild(button);
-		button.addEventListener("click", selectCategory);
-	});
-}
-
 // Get Questions & Answers
-const questions = [];
+let questions = [];
 
 function shuffle(array) {
 	return array.sort(() => Math.random() - 0.5);
 }
 
 function getQuestions(chosenCategory) {
+	questions = [];
 	axios
 		.get(
 			`https://opentdb.com/api.php?amount=10&category=${chosenCategory}&type=multiple`
@@ -132,13 +112,17 @@ function goHome() {
 
 function goCategories() {
 	hideView();
+	chosenCategory = "";
 	categories.classList.remove("d-none");
-	showCategories(categoriesData);
 }
 
 function goPlay() {
 	hideView();
 	play.classList.remove("d-none");
+	startButton.classList.remove("d-none");
+	progressBarDiv.classList.add("d-none");
+	questionContainerElement.classList.add("d-none");
+	answerButtonsElement.classList.add("d-none");
 }
 
 function goResults() {
@@ -169,7 +153,12 @@ function showQuestion(question) {
 	question.answers.forEach((answer) => {
 		const button = document.createElement("button");
 		button.innerHTML = answer.text;
-		button.classList.add("btn", "btn-secondary");
+		button.classList.add(
+			"btn",
+			"btn-secondary",
+			"btn-lg",
+			"w-100"
+		);
 		if (answer.correct) {
 			button.dataset.correct = true;
 		}
@@ -204,12 +193,17 @@ function selectAnswer(e) {
 	Array.from(answerButtonsElement.children).forEach(
 		(button) => {
 			setStatusClass(button);
+			button.classList.add("disabled");
 		}
 	);
 	if (questions.length > currentQuestionIndex + 1) {
 		nextButton.classList.remove("d-none");
 	} else {
-		setTimeout(goResults, 3000);
+		progressBar.setAttribute(
+			"style",
+			`width: ${(progress += 10)}%`
+		);
+		setTimeout(goResults, 2000);
 	}
 }
 
@@ -223,9 +217,7 @@ function resetState() {
 function restart() {
 	score = 0;
 	progress = -10;
-	categories.innerHTML = "";
-	resetState();
-	results.classList.add("d-none");
+	progressBar.removeAttribute("style");
 	goCategories();
 }
 
