@@ -39,9 +39,6 @@
 								>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" id="playNav">Play</a>
-							</li>
-							<li class="nav-item">
 								<a class="nav-link" id="resultsNav"
 									>Results</a
 								>
@@ -53,12 +50,12 @@
 		</header>
 		<main
 			class="d-flex flex-col justify-content-center align-content-center"
-			style="height: 90vh">
+			style="height: 85vh">
 			<div
 				id="home"
 				class="d-flex flex-col w-full align-items-center justify-content-center">
 				<div class="form-group d-grid gap-2">
-					<h3 class="m-2">Type your name to get started</h3>
+					<h3 class="m-3">Type your name to get started</h3>
 					<input
 						id="name"
 						class="form-control form-control-lg"
@@ -72,215 +69,223 @@
 					</button>
 				</div>
 			</div>
-			<div id="categories" class="d-none d-flex flex-wrap">
-				<div class="d-grid gap-2">
-					<button
-						class="btn btn-lg btn-primary"
-						type="button"
-						value="9"
-						onclick="selectCategory(9)">
-						General Knowledge
-					</button>
-					<div
-						class="btn-group"
-						role="group"
-						aria-label="Button group with nested dropdown">
-						<button type="button" class="btn btn-primary">
-							Entertainment
+			<div
+				id="categories"
+				class="d-none text-center w-full align-items-center justify-content-center"
+				style="width: 90vw">
+				<h3 class="mt-4 mb-3">Pick Your Category</h3>
+				<div class="d-flex flex-col justify-content-evenly">
+					<div class="gap-2 d-grid d-md-block">
+						<button
+							class="btn btn-lg btn-primary"
+							type="button"
+							value="9"
+							onclick="selectCategory(9)">
+							General Knowledge
 						</button>
-						<div class="btn-group" role="group">
-							<button
-								id="entertainmentBtnGroup"
-								type="button"
-								class="btn btn-primary dropdown-toggle"
-								data-bs-toggle="dropdown"></button>
-							<div
-								class="dropdown-menu"
-								aria-labelledby="entertainmentBtnGroup"
-								data-popper-placement="bottom-start"
-								style="
-									position: absolute;
-									inset: 0px auto auto 0px;
-									margin: 0px;
-									transform: translate(0px, 52px);
-								">
-								<a
-									class="dropdown-item"
-									value="16"
-									onclick="selectCategory(16)"
-									>Board Games</a
-								>
-								<a
-									class="dropdown-item"
-									value="10"
-									onclick="selectCategory(10)"
-									>Books</a
-								>
-								<a
-									class="dropdown-item"
-									value="32"
-									onclick="selectCategory(32)"
-									>Cartoon & Animations</a
-								>
-								<a
-									class="dropdown-item"
-									value="29"
-									onclick="selectCategory(29)"
-									>Comics</a
-								>
-								<a
-									class="dropdown-item"
-									value="11"
-									onclick="selectCategory(11)"
-									>Film</a
-								>
-								<a
-									class="dropdown-item"
-									value="31"
-									onclick="selectCategory(31)"
-									>Japanese Anime & Manga</a
-								>
-								<a
-									class="dropdown-item"
-									value="12"
-									onclick="selectCategory(12)"
-									>Music</a
-								>
-								<a
-									class="dropdown-item"
-									value="13"
-									onclick="selectCategory(13)"
-									>Musicals & Theatres</a
-								>
-								<a
-									class="dropdown-item"
-									value="14"
-									onclick="selectCategory(14)"
-									>Television</a
-								>
-								<a
-									class="dropdown-item"
-									value="15"
-									onclick="selectCategory(15)"
-									>Video Games</a
-								>
+						<button
+							class="btn btn-lg btn-primary"
+							type="button"
+							value="20"
+							onclick="selectCategory(20)">
+							Mythology
+						</button>
+						<button
+							class="btn btn-lg btn-primary"
+							type="button"
+							value="21"
+							onclick="selectCategory(21)">
+							Sports
+						</button>
+						<button
+							class="btn btn-lg btn-primary"
+							type="button"
+							value="22"
+							onclick="selectCategory(22)">
+							Geography
+						</button>
+						<button
+							class="btn btn-lg btn-primary"
+							type="button"
+							value="23"
+							onclick="selectCategory(23)">
+							History
+						</button>
+						<div
+							class="btn-group"
+							role="group"
+							aria-label="Button group with nested dropdown">
+							<button type="button" class="btn btn-primary">
+								Entertainment
+							</button>
+							<div class="btn-group" role="group">
+								<button
+									id="entertainmentBtnGroup"
+									type="button"
+									class="btn btn-primary dropdown-toggle"
+									data-bs-toggle="dropdown"></button>
+								<div
+									class="dropdown-menu"
+									aria-labelledby="entertainmentBtnGroup"
+									data-popper-placement="bottom-start"
+									style="
+										position: absolute;
+										inset: 0px auto auto 0px;
+										margin: 0px;
+										transform: translate(0px, 52px);
+									">
+									<a
+										class="dropdown-item"
+										value="16"
+										onclick="selectCategory(16)"
+										>Board Games</a
+									>
+									<a
+										class="dropdown-item"
+										value="10"
+										onclick="selectCategory(10)"
+										>Books</a
+									>
+									<a
+										class="dropdown-item"
+										value="32"
+										onclick="selectCategory(32)"
+										>Cartoon & Animations</a
+									>
+									<a
+										class="dropdown-item"
+										value="29"
+										onclick="selectCategory(29)"
+										>Comics</a
+									>
+									<a
+										class="dropdown-item"
+										value="11"
+										onclick="selectCategory(11)"
+										>Film</a
+									>
+									<a
+										class="dropdown-item"
+										value="31"
+										onclick="selectCategory(31)"
+										>Japanese Anime & Manga</a
+									>
+									<a
+										class="dropdown-item"
+										value="12"
+										onclick="selectCategory(12)"
+										>Music</a
+									>
+									<a
+										class="dropdown-item"
+										value="13"
+										onclick="selectCategory(13)"
+										>Musicals & Theatres</a
+									>
+									<a
+										class="dropdown-item"
+										value="14"
+										onclick="selectCategory(14)"
+										>Television</a
+									>
+									<a
+										class="dropdown-item"
+										value="15"
+										onclick="selectCategory(15)"
+										>Video Games</a
+									>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div
-						class="btn-group"
-						role="group"
-						aria-label="Button group with nested dropdown">
-						<button type="button" class="btn btn-primary">
-							Science
+					<div class="gap-2 d-grid d-md-block ms-2">
+						<button
+							class="btn btn-lg btn-primary"
+							type="button"
+							value="24"
+							onclick="selectCategory(24)">
+							Politics
 						</button>
-						<div class="btn-group" role="group">
-							<button
-								id="ScienceBtnGroup"
-								type="button"
-								class="btn btn-primary dropdown-toggle"
-								data-bs-toggle="dropdown"
-								aria-haspopup="true"></button>
-							<div
-								class="dropdown-menu"
-								aria-labelledby="ScienceBtnGroup"
-								data-popper-placement="bottom-start"
-								style="
-									position: absolute;
-									inset: 0px auto auto 0px;
-									margin: 0px;
-									transform: translate(0px, 52px);
-								">
-								<a
-									class="dropdown-item"
-									value="18"
-									onclick="selectCategory(18)"
-									>Computers</a
-								>
-								<a
-									class="dropdown-item"
-									value="30"
-									onclick="selectCategory(30)"
-									>Gadgets</a
-								>
-								<a
-									class="dropdown-item"
-									value="19"
-									onclick="selectCategory(19)"
-									>Mathematics</a
-								>
-								<a
-									class="dropdown-item"
-									value="17"
-									onclick="selectCategory(17)"
-									>Nature</a
-								>
+						<button
+							class="btn btn-lg btn-primary"
+							type="button"
+							value="25"
+							onclick="selectCategory(25)">
+							Art
+						</button>
+						<button
+							class="btn btn-lg btn-primary"
+							type="button"
+							value="26"
+							onclick="selectCategory(26)">
+							Celebrities
+						</button>
+						<button
+							class="btn btn-lg btn-primary"
+							type="button"
+							value="27"
+							onclick="selectCategory(27)">
+							Animals
+						</button>
+						<button
+							class="btn btn-lg btn-primary"
+							type="button"
+							value="28"
+							onclick="selectCategory(28)">
+							Vehicles
+						</button>
+						<div
+							class="btn-group"
+							role="group"
+							aria-label="Button group with nested dropdown">
+							<button type="button" class="btn btn-primary">
+								Science
+							</button>
+							<div class="btn-group" role="group">
+								<button
+									id="ScienceBtnGroup"
+									type="button"
+									class="btn btn-primary dropdown-toggle"
+									data-bs-toggle="dropdown"
+									aria-haspopup="true"></button>
+								<div
+									class="dropdown-menu"
+									aria-labelledby="ScienceBtnGroup"
+									data-popper-placement="bottom-start"
+									style="
+										position: absolute;
+										inset: 0px auto auto 0px;
+										margin: 0px;
+										transform: translate(0px, 52px);
+									">
+									<a
+										class="dropdown-item"
+										value="18"
+										onclick="selectCategory(18)"
+										>Computers</a
+									>
+									<a
+										class="dropdown-item"
+										value="30"
+										onclick="selectCategory(30)"
+										>Gadgets</a
+									>
+									<a
+										class="dropdown-item"
+										value="19"
+										onclick="selectCategory(19)"
+										>Mathematics</a
+									>
+									<a
+										class="dropdown-item"
+										value="17"
+										onclick="selectCategory(17)"
+										>Nature</a
+									>
+								</div>
 							</div>
 						</div>
 					</div>
-					<button
-						class="btn btn-lg btn-primary"
-						type="button"
-						value="20"
-						onclick="selectCategory(20)">
-						Mythology
-					</button>
-					<button
-						class="btn btn-lg btn-primary"
-						type="button"
-						value="21"
-						onclick="selectCategory(21)">
-						Sports
-					</button>
-					<button
-						class="btn btn-lg btn-primary"
-						type="button"
-						value="22"
-						onclick="selectCategory(22)">
-						Geography
-					</button>
-					<button
-						class="btn btn-lg btn-primary"
-						type="button"
-						value="23"
-						onclick="selectCategory(23)">
-						History
-					</button>
-					<button
-						class="btn btn-lg btn-primary"
-						type="button"
-						value="24"
-						onclick="selectCategory(24)">
-						Politics
-					</button>
-					<button
-						class="btn btn-lg btn-primary"
-						type="button"
-						value="25"
-						onclick="selectCategory(25)">
-						Art
-					</button>
-					<button
-						class="btn btn-lg btn-primary"
-						type="button"
-						value="26"
-						onclick="selectCategory(26)">
-						Celebrities
-					</button>
-					<button
-						class="btn btn-lg btn-primary"
-						type="button"
-						value="27"
-						onclick="selectCategory(27)">
-						Animals
-					</button>
-					<button
-						class="btn btn-lg btn-primary"
-						type="button"
-						value="28"
-						onclick="selectCategory(28)">
-						Vehicles
-					</button>
 				</div>
 			</div>
 			<div
@@ -288,7 +293,7 @@
 				class="d-none m-2 justify-content-center align-items-center">
 				<div
 					id="progressBar"
-					class="progress d-none d-flex"
+					class="progress d-none d-flex mt-2"
 					style="width: 80vw">
 					<div
 						class="progress-bar progress-bar-striped bg-warning progress-bar-animated"
@@ -298,17 +303,17 @@
 						aria-valuemax="100"></div>
 				</div>
 				<div
-					class="card border-primary mt-4 justify-content-center align-items-center"
+					class="card border-primary mt-2 justify-content-center align-items-center"
 					style="width: 80vw; height: 80vh">
 					<div
 						id="question-container"
 						class="d-none card-header">
-						<h3 id="question" class="m-3">Question</h3>
+						<h4 id="question" class="m-2">Question</h4>
 					</div>
 					<div
 						id="answer-buttons"
-						class="d-none card-body p-3 d-flex flex-wrap flex-col gap-2"></div>
-					<div class="controls m-3">
+						class="d-none card-body p-2 d-flex flex-wrap flex-col gap-2"></div>
+					<div class="controls m-2">
 						<button
 							id="start-btn"
 							type="button"
@@ -334,7 +339,21 @@
 				</button>
 			</div>
 		</main>
-
+		<footer>
+			<nav
+				class="navbar navbar-expand-lg bg-dark fixed-bottom justify-content-center"
+				data-bs-theme="dark">
+				<div class="text-center">
+					Developed with &hearts; by
+					<a
+						href="https://www.linkedin.com/in/frances-morales/"
+						target="_blank"
+						style="text-decoration: none"
+						>Frances</a
+					>
+				</div>
+			</nav>
+		</footer>
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

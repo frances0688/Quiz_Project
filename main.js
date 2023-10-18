@@ -3,7 +3,6 @@ const home = document.getElementById("home");
 const categoriesNav =
 	document.getElementById("categoriesNav");
 const categories = document.getElementById("categories");
-const playNav = document.getElementById("playNav");
 const play = document.getElementById("play");
 const resultsNav = document.getElementById("resultsNav");
 const results = document.getElementById("results");
@@ -153,12 +152,7 @@ function showQuestion(question) {
 	question.answers.forEach((answer) => {
 		const button = document.createElement("button");
 		button.innerHTML = answer.text;
-		button.classList.add(
-			"btn",
-			"btn-secondary",
-			"btn-lg",
-			"w-100"
-		);
+		button.classList.add("btn", "btn-secondary", "w-100");
 		if (answer.correct) {
 			button.dataset.correct = true;
 		}
@@ -225,8 +219,6 @@ function restart() {
 homeNav.addEventListener("click", goHome);
 
 categoriesNav.addEventListener("click", goCategories);
-
-playNav.addEventListener("click", goPlay);
 
 resultsNav.addEventListener("click", goResults);
 
