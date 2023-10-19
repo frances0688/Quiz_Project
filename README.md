@@ -42,7 +42,12 @@
 
 - General overview gif
 
-![preview-image](#)
+<img style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 15%;" 
+      src='./img/QuizWhiz_preview.gif' 
+      alt="game preview gif"/>
 
 <!-- ABOUT THE OBJECTIVES -->
 
@@ -63,17 +68,24 @@
 
 This project consists on the creation of a quiz game application and showing the right and wrong answers.
 
-- The quiz consists on 10 questions. Each question will have 4 possible answers and only one of them will be correct.
+- The quiz consists on 10 questions. The questions are displayed one at a time, they have 4 possible answers, and only one of them is correct.
+- The resulting score is displayed at the end of the game.
 - All questions are retrieved making requests to the https://opentdb.com/ API.
-- The application is a SPA (single-page application). It only displays one question at a time.
+- The application is a SPA (single-page application).
+- The styling was created with Bootstrap framework.
 
 ### Views
 
 <views>
   <ol>
-    <li>Home</a></li>
-    <li>Question</a></li>
-    <li>Results</a></li>
+    <li>Home</li>
+    <img src='./img/Home_view.png' alt="home view" style="height: 50vh"/>
+    <li>Categories</li>
+    <img src='./img/Categories_view.png' alt="categories view" style="height: 50vh"/>
+    <li>Game</li>
+    <img src='./img/Play_view.png' alt="game view" style="height: 50vh"/>
+    <li>Results</li>
+    <img src='./img/Results_view.png' alt="results view" style="height: 50vh"/>
   </ol>
 </views>
 
