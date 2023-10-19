@@ -6,8 +6,9 @@ const categories = document.getElementById("categories");
 const play = document.getElementById("play");
 const resultsNav = document.getElementById("resultsNav");
 const results = document.getElementById("results");
-const name = document.getElementById("name");
+const nameInput = document.getElementById("nameInput");
 const homeBtn = document.getElementById("homeBtn");
+const nameText = document.getElementById("nameText");
 const progressBar = document.querySelector(".progress-bar");
 const progressBarDiv =
 	document.getElementById("progressBar");
@@ -22,26 +23,6 @@ const answerButtonsElement = document.getElementById(
 );
 const scoreText = document.getElementById("scoreText");
 const restartBtn = document.getElementById("restart-btn");
-const user = {
-	name: "",
-	results: [
-		{
-			category: "",
-			score: 0,
-			date: Date(),
-		},
-	],
-};
-
-// Save User to Local Storage
-function createDataObject(e) {
-	e.preventDefault();
-	user.name = name.value;
-	localStorage.user = JSON.stringify(user);
-	goCategories();
-}
-
-homeBtn.addEventListener("click", createDataObject);
 
 // Categories
 let chosenCategory;
@@ -93,7 +74,7 @@ function getQuestions(chosenCategory) {
 
 /*
 	SPA
-*/
+		*/
 
 //Hide Views
 function hideView() {
@@ -112,6 +93,7 @@ function goHome() {
 function goCategories() {
 	hideView();
 	chosenCategory = "";
+	nameText.innerHTML = `Hi ${nameInput.value}!`;
 	categories.classList.remove("d-none");
 }
 
@@ -132,7 +114,6 @@ function goResults() {
 
 // Start Game
 let currentQuestionIndex;
-let currentSession;
 let score = 0;
 let progress = -10;
 
@@ -221,6 +202,8 @@ homeNav.addEventListener("click", goHome);
 categoriesNav.addEventListener("click", goCategories);
 
 resultsNav.addEventListener("click", goResults);
+
+homeBtn.addEventListener("click", goCategories);
 
 startButton.addEventListener("click", startGame);
 

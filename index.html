@@ -5,7 +5,11 @@
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0" />
-		<title>Quiz Project</title>
+		<title>QuizWhiz</title>
+		<link
+			rel="icon"
+			href="./img/QuizWhiz_Logo_favicon.gif"
+			type="image/gif" />
 		<link rel="stylesheet" href="bootstrap.min.css" />
 		<link rel="stylesheet" href="style.css" />
 	</head>
@@ -15,7 +19,14 @@
 				class="navbar navbar-expand-lg bg-dark"
 				data-bs-theme="dark">
 				<div class="container-fluid">
-					<a class="navbar-brand">Quiz Game</a>
+					<a class="navbar-brand">
+						<img
+							class="me-1"
+							src="./img/QuizWhiz_Logo_favicon.gif"
+							alt="logo"
+							width="30"
+							height="30" />QuizWhiz</a
+					>
 					<button
 						class="navbar-toggler"
 						type="button"
@@ -53,11 +64,15 @@
 			style="height: 85vh">
 			<div
 				id="home"
-				class="d-flex flex-col w-full align-items-center justify-content-center">
-				<div class="form-group d-grid gap-2">
-					<h3 class="m-3">Type your name to get started</h3>
+				class="d-flex flex-col align-items-center justify-content-center">
+				<div class="d-grid gap-2 text-center">
+					<img
+						src="./img/QuizWhiz_Logo.gif"
+						alt="game logo"
+						class="img-fluid rounded-circle p-3" />
+					<h3>Type your name to get started</h3>
 					<input
-						id="name"
+						id="nameInput"
 						class="form-control form-control-lg"
 						type="text"
 						placeholder="Name" />
@@ -71,48 +86,48 @@
 			</div>
 			<div
 				id="categories"
-				class="d-none text-center w-full align-items-center justify-content-center"
-				style="width: 90vw">
-				<h3 class="mt-4 mb-3">Pick Your Category</h3>
+				class="d-none text-center w-full align-items-center justify-content-center">
+				<h2 id="nameText" class="mt-4 mb-3"></h2>
+				<h4 class="mb-4">Pick Your Game Category</h4>
 				<div class="d-flex flex-col justify-content-evenly">
-					<div class="gap-2 d-grid d-md-block">
+					<div class="gap-2 d-grid d-xxl-grid d-xxl-block">
 						<button
-							class="btn btn-lg btn-primary"
+							class="btn btn-lg btn-primary w-100"
 							type="button"
 							value="9"
 							onclick="selectCategory(9)">
 							General Knowledge
 						</button>
 						<button
-							class="btn btn-lg btn-primary"
+							class="btn btn-lg btn-primary w-100"
 							type="button"
 							value="20"
 							onclick="selectCategory(20)">
 							Mythology
 						</button>
 						<button
-							class="btn btn-lg btn-primary"
+							class="btn btn-lg btn-primary w-100"
 							type="button"
 							value="21"
 							onclick="selectCategory(21)">
 							Sports
 						</button>
 						<button
-							class="btn btn-lg btn-primary"
+							class="btn btn-lg btn-primary w-100"
 							type="button"
 							value="22"
 							onclick="selectCategory(22)">
 							Geography
 						</button>
 						<button
-							class="btn btn-lg btn-primary"
+							class="btn btn-lg btn-primary w-100"
 							type="button"
 							value="23"
 							onclick="selectCategory(23)">
 							History
 						</button>
 						<div
-							class="btn-group"
+							class="btn-group w-100"
 							role="group"
 							aria-label="Button group with nested dropdown">
 							<button type="button" class="btn btn-primary">
@@ -198,44 +213,45 @@
 							</div>
 						</div>
 					</div>
-					<div class="gap-2 d-grid d-md-block ms-2">
+					<div
+						class="gap-2 d-grid d-xxl-grid d-xxl-block ms-2">
 						<button
-							class="btn btn-lg btn-primary"
+							class="btn btn-lg btn-primary w-100"
 							type="button"
 							value="24"
 							onclick="selectCategory(24)">
 							Politics
 						</button>
 						<button
-							class="btn btn-lg btn-primary"
+							class="btn btn-lg btn-primary w-100"
 							type="button"
 							value="25"
 							onclick="selectCategory(25)">
 							Art
 						</button>
 						<button
-							class="btn btn-lg btn-primary"
+							class="btn btn-lg btn-primary w-100"
 							type="button"
 							value="26"
 							onclick="selectCategory(26)">
 							Celebrities
 						</button>
 						<button
-							class="btn btn-lg btn-primary"
+							class="btn btn-lg btn-primary w-100"
 							type="button"
 							value="27"
 							onclick="selectCategory(27)">
 							Animals
 						</button>
 						<button
-							class="btn btn-lg btn-primary"
+							class="btn btn-lg btn-primary w-100"
 							type="button"
 							value="28"
 							onclick="selectCategory(28)">
 							Vehicles
 						</button>
 						<div
-							class="btn-group"
+							class="btn-group w-100"
 							role="group"
 							aria-label="Button group with nested dropdown">
 							<button type="button" class="btn btn-primary">
@@ -293,7 +309,7 @@
 				class="d-none m-2 justify-content-center align-items-center">
 				<div
 					id="progressBar"
-					class="progress d-none d-flex mt-2"
+					class="progress d-none d-flex mt-2 mb-2"
 					style="width: 80vw">
 					<div
 						class="progress-bar progress-bar-striped bg-warning progress-bar-animated"
@@ -303,7 +319,7 @@
 						aria-valuemax="100"></div>
 				</div>
 				<div
-					class="card border-primary mt-2 justify-content-center align-items-center"
+					class="card border-primary justify-content-center align-items-center"
 					style="width: 80vw; height: 80vh">
 					<div
 						id="question-container"
@@ -329,8 +345,40 @@
 					</div>
 				</div>
 			</div>
-			<div id="results" class="d-none">
-				<p id="scoreText"></p>
+			<div
+				id="results"
+				class="d-none d-grid text-center justify-content-center align-content-start"
+				style="width: 80vw">
+				<h1 class="mt-2 mb-0">Final Score</h1>
+				<div
+					class="text-center bg-white rounded-circle text-warning m-3"
+					style="width: 150px; height: 150px">
+					<h1
+						id="scoreText"
+						class="m-0"
+						style="padding-top: 35%"></h1>
+				</div>
+				<div class="container">
+					<div class="foot right"></div>
+					<div class="chicken">
+						<div class="head">
+							<div class="eye_left"></div>
+							<div class="eye_right"></div>
+							<div class="feather"></div>
+							<div class="beak_top"></div>
+							<div class="beak_bottom"></div>
+							<div class="feather"></div>
+						</div>
+						<div class="body">
+							<div class="wing"></div>
+							<div class="tail"></div>
+						</div>
+					</div>
+					<div class="foot left"></div>
+					<div class="beam">
+						<div class="rainbow"></div>
+					</div>
+				</div>
 				<button
 					id="restart-btn"
 					type="button"
