@@ -44,8 +44,7 @@
 
 <img style="display: block; 
            margin-left: auto;
-           margin-right: auto;
-           width: 15%;" 
+           margin-right: auto;" 
       src='./img/QuizWhiz_preview.gif' 
       alt="game preview gif"/>
 
